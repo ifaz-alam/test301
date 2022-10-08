@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
 
   function addItem(event) {
     event.preventDefault();
-    const next = [...items, itemText.current.value];
+    const next = [...items, `${itemText.current.value} \$${itemPrice.current.value}`];
     setItems(next);
     localStorage.setItem('items', JSON.stringify.next);
   }
