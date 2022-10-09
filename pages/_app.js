@@ -21,10 +21,18 @@ function MyApp({ Component, pageProps }) {
   */
 
   function addItem(event) {
-    event.preventDefault();
-    const next = [...items, { itemName: itemText.current.value, itemPrice: itemPrice.current.value}];
-    setItems(next);
-    localStorage.setItem('items', JSON.stringify.next);
+    if (itemText.current.value.length == 0 || itemPrice.current.value.length == 0) {
+      alert("BOY put values in both fields");
+      // doesnt reload the page
+      event.preventDefault();
+    }
+    
+    else {
+      event.preventDefault();
+      const next = [...items, { itemName: itemText.current.value, itemPrice: itemPrice.current.value}];
+      setItems(next);
+      localStorage.setItem('items', JSON.stringify.next);
+    }
   }
 
   return (
@@ -32,6 +40,8 @@ function MyApp({ Component, pageProps }) {
     //need to split item name and price components
     //trying to separate price and items side by side horizontally
     //also need to add option to delete items in future
+    // need to validate input and give error message when one of them are empty
+
     <>   
       <Layout>
         <div>
@@ -50,10 +60,10 @@ function MyApp({ Component, pageProps }) {
         
         <div>
           <form onSubmit={addItem}>
-          <label for="iname">Item Name:</label><br/>
+          <label>Item Name:</label><br/>
           <input type="text" ref={itemText} id="iname" name="iname"/><br/>
-          <label for="iprice">Item Price:</label><br/>
-          <input type="iprice" ref={itemPrice} id="iprice" name="iprice"/><br/>
+          <label>Item Price:</label><br/>
+          <input type="number" ref={itemPrice} id="iprice" name="iprice"/><br/>
           <input type="submit" value="Add Item"/>
           </form>
         </div>
