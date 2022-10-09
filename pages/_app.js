@@ -1,4 +1,7 @@
+import Layout from '../components/Layout'
 import '../styles/globals.css'
+import styles from '../styles/Home.module.css'
+
 import React, { useEffect, useState, useRef } from "react";
 import './checkbox.js'
 function MyApp({ Component, pageProps }) {
@@ -25,24 +28,48 @@ function MyApp({ Component, pageProps }) {
   }
 
   return (
-  // <Component {...pageProps} />
-    <div>
-      <ul>
-        {items.map(item => (
-        <>
-        <li key={item}>{item}</li>
-        </>
-        ))}
-      </ul>
+    // <Component {...pageProps} />
+    //need to split item name and price components
+    //trying to separate price and items side by side horizontally, but its still vertical for some reason
+    //also need to add option to delete items in future
+    <>
+      <Layout>
+        <div class="container">
+          <div>
+            <ul>
+              <h2>Items</h2>
+              {items.map(item => (
+              <>
+              <li key={item}>{item}</li>
+              </>
+              ))}
+            </ul>
+          </div>
 
-      <form onSubmit={addItem}>
+          <div>
+            <ul>
+              <h2>Prices</h2>
+              {items.map(item => (
+              <>
+              <li key={item}>{item}</li>
+              </>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Layout>
+      
+      {/* This applies the main css file in styles/Home.module.css within this div*/}
+      <div className={styles.main}>
+        <form onSubmit={addItem}>
         <label for="iname">Item Name:</label><br/>
         <input type="text" ref={itemText} id="iname" name="iname"/><br/>
         <label for="iprice">Item Price:</label><br/>
         <input type="iprice" ref={itemPrice} id="iprice" name="iprice"/><br/>
         <input type="submit" value="Add Item"/>
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   )
 }
 
