@@ -1,0 +1,29 @@
+.card {
+    margin: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    max-width: 300px;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+.card h1 {
+    margin-bottom: .5rem;
+}
+
+.card h6 {
+    margin: 0;
+}
+
+.blue {
+    color: blue;
+}

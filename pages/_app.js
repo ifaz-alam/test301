@@ -1,6 +1,8 @@
 import Layout from '../components/Layout'
 import '../styles/globals.css'
 import styles from '../styles/Home.module.css'
+import Item from '../components/item';
+import ItemList from '../components/itemList'
 
 import React, { useEffect, useState, useRef } from "react";
 import './checkbox.js'
@@ -54,29 +56,28 @@ function MyApp({ Component, pageProps }) {
 
     <>   
       <Layout>
-        <div>
-          <ul>
-            <h2>Items</h2>
-            {items.map(item => (<li key={item.itemName}>{item.itemName}</li>))}
-          </ul>
+      <div className={styles.form}>
+        <form className={styles.actualform} onSubmit={addItem}>
+          <label>Item Name:</label><br/>
+          <input type="text" ref={itemText} id="iname" name="iname" maxLength={10}/><br/>
+          <label>Item Price:</label><br/>
+          <input type="number" step="0.01" ref={itemPrice} id="iprice" name="iprice"/><br/>
+          <input type="submit" value="Add Item"/>
+        </form>
+      </div>
+        <h2 className={styles.header}>Items</h2>
+        <div className={styles.listWrapper}>
+          <ItemList items={items}></ItemList>
         </div>
 
-        <div>
+        {/* <div>
           <ul>
             <h2>Prices</h2>
             {items.map(item => (<li key={item.itemPrice}>{`\$ ${item.itemPrice}`}</li>))}
           </ul>
-        </div>
+        </div> */}
         
-        <div>
-          <form onSubmit={addItem}>
-          <label>Item Name:</label><br/>
-          <input type="text" ref={itemText} id="iname" name="iname"/><br/>
-          <label>Item Price:</label><br/>
-          <input type="number" step="0.01" ref={itemPrice} id="iprice" name="iprice"/><br/>
-          <input type="submit" value="Add Item"/>
-          </form>
-        </div>
+        
       </Layout>
     </>
   )
