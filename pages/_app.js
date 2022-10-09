@@ -7,7 +7,7 @@ import ItemList from '../components/itemList'
 import React, { useEffect, useState, useRef } from "react";
 import './checkbox.js'
 function MyApp({ Component, pageProps }) {
-  // State
+  // State   
   const [items, setItems] = useState([]);
   
   // Binding our input fields as a way to access the DOM
@@ -76,8 +76,6 @@ function MyApp({ Component, pageProps }) {
             {items.map(item => (<li key={item.itemPrice}>{`\$ ${item.itemPrice}`}</li>))}
           </ul>
         </div> */}
-        
-        
       </Layout>
     </>
   )

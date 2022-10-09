@@ -18,6 +18,12 @@
   align-items: center; */
 }
 
+.background {
+  background: linear-gradient(to top left, #b476ee, #82baff);
+  height: 100%;
+  background-position: center;
+  background-size: fill;
+}
 /* 
 .footer {
   display: flex;
