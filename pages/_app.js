@@ -26,9 +26,10 @@ function MyApp({ Component, pageProps }) {
       // doesnt reload the page
       event.preventDefault();
     }
-    
+
     else {
       event.preventDefault();
+      // console isn't happy because some keys are not unique
       const next = [...items, { itemName: itemText.current.value, itemPrice: itemPrice.current.value}];
       setItems(next);
       localStorage.setItem('items', JSON.stringify.next);
@@ -37,10 +38,18 @@ function MyApp({ Component, pageProps }) {
 
   return (
     // <Component {...pageProps} />
-    //need to split item name and price components
-    //trying to separate price and items side by side horizontally
-    //also need to add option to delete items in future
-    // need to validate input and give error message when one of them are empty
+    /*
+    Complete:
+    - split item name and price components - done 
+    - separate price and items side by side horizontally - done
+    - validate input and give error message when one of them are empty
+    /*
+
+    TODOS:
+    - add option to delete items -> reduce cumulative price
+    - keep track of cumulative price
+    - dynamically update subtotal and tax stuff (?)
+    */
 
     <>   
       <Layout>
