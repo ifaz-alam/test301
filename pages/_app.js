@@ -40,8 +40,8 @@ function MyApp({ Component, pageProps }) {
     // <Component {...pageProps} />
     /*
     Complete:
-    - split item name and price components - done 
-    - separate price and items side by side horizontally - done
+    - split item name and price components
+    - separate price and items side by side horizontally
     - validate input and give error message when one of them are empty
     /*
 
