@@ -4,6 +4,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  column-gap: 30px;
 }
 
 .main {
