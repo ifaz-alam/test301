@@ -43,6 +43,7 @@ function MyApp({ Component, pageProps }) {
     - split item name and price components
     - separate price and items side by side horizontally
     - validate input and give error message when one of them are empty
+    - enforce item price to not exceed 2 decimal places
     /*
 
     TODOS:
@@ -72,7 +73,7 @@ function MyApp({ Component, pageProps }) {
           <label>Item Name:</label><br/>
           <input type="text" ref={itemText} id="iname" name="iname"/><br/>
           <label>Item Price:</label><br/>
-          <input type="number" ref={itemPrice} id="iprice" name="iprice"/><br/>
+          <input type="number" step="0.01" ref={itemPrice} id="iprice" name="iprice"/><br/>
           <input type="submit" value="Add Item"/>
           </form>
         </div>
