@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
   // State
   const [items, setItems] = useState([]);
   
-  // Binding
+  // Binding our input fields as a way to access the DOM
   const itemText = useRef();
   const itemPrice = useRef();
   
@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
 
   function addItem(event) {
     event.preventDefault();
-    const next = [...items, `${itemText.current.value} \$${itemPrice.current.value}`];
+    const next = [...items, { itemName: itemText.current.value, itemPrice: itemPrice.current.value}];
     setItems(next);
     localStorage.setItem('items', JSON.stringify.next);
   }
@@ -37,22 +37,14 @@ function MyApp({ Component, pageProps }) {
         <div>
           <ul>
             <h2>Items</h2>
-            {items.map(item => (
-            <>
-            <li key={item}>{item}</li>
-            </>
-            ))}
+            {items.map(item => (<li key={item.itemName}>{item.itemName}</li>))}
           </ul>
         </div>
 
         <div>
           <ul>
             <h2>Prices</h2>
-            {items.map(item => (
-            <>
-            <li key={item}>{item}</li>
-            </>
-            ))}
+            {items.map(item => (<li key={item.itemPrice}>{`\$ ${item.itemPrice}`}</li>))}
           </ul>
         </div>
         
